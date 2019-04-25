@@ -2210,6 +2210,58 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2218,6 +2270,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       data: [],
+      detailmodal: false,
+      detaildata: '',
       showmodal: false,
       showmodalCar: false,
       imagepath: "http://127.0.0.1:8000/public/images/"
@@ -2235,6 +2289,19 @@ __webpack_require__.r(__webpack_exports__);
         console.log(response.data);
         _this.data = response.data;
       });
+    },
+    Details: function Details(id) {
+      var _this2 = this;
+
+      this.detailmodal = true;
+      var url = 'http://127.0.0.1:8000/api/data/' + id;
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(url).then(function (response) {
+        console.log(response.data);
+        _this2.detaildata = response.data;
+      });
+    },
+    hidedetail: function hidedetail() {
+      this.detailmodal = false;
     },
     show: function show() {
       this.showmodal = true;
@@ -45507,6 +45574,167 @@ var render = function() {
           _vm._v(" "),
           _vm.showmodalCar ? _c("div", [_c("AddModel")], 1) : _vm._e(),
           _vm._v(" "),
+          _vm.detailmodal
+            ? _c("div", [
+                _c("div", { staticClass: "modal-mask" }, [
+                  _c("div", { staticClass: "modal-wrapper" }, [
+                    _c("div", { staticClass: "modal-container" }, [
+                      _c(
+                        "div",
+                        { staticClass: "modal-body" },
+                        [
+                          _vm._t("body", [
+                            _c("h2", [_vm._v("Details Car ")]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "container-fluid" }, [
+                              _c(
+                                "button",
+                                {
+                                  staticStyle: {
+                                    position: "absolute",
+                                    top: "0",
+                                    right: "0"
+                                  },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.hidedetail()
+                                    }
+                                  }
+                                },
+                                [_vm._v("X")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "fan-col1" },
+                                _vm._l(_vm.detaildata, function(data) {
+                                  return _c("div", [
+                                    _c("div", {}, [
+                                      _c(
+                                        "div",
+                                        {
+                                          staticStyle: {
+                                            "background-color": "silver"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "div",
+                                            { staticClass: "thumbnail" },
+                                            [
+                                              _vm._l(data.images, function(
+                                                img
+                                              ) {
+                                                return _c(
+                                                  "div",
+                                                  {
+                                                    staticClass: "media-body "
+                                                  },
+                                                  [
+                                                    _c("img", {
+                                                      attrs: {
+                                                        src:
+                                                          "/images/" +
+                                                          img.image,
+                                                        height: "130px"
+                                                      }
+                                                    })
+                                                  ]
+                                                )
+                                              }),
+                                              _vm._v(" "),
+                                              _c("h2", [
+                                                _vm._v(
+                                                  _vm._s(data.manufacturer.Name)
+                                                )
+                                              ]),
+                                              _vm._v(" "),
+                                              _c("b", [
+                                                _vm._v(
+                                                  "ModelName: " +
+                                                    _vm._s(data.ModelName)
+                                                )
+                                              ]),
+                                              _c("br"),
+                                              _vm._v(" "),
+                                              _c("b", [
+                                                _vm._v(
+                                                  "Color : " +
+                                                    _vm._s(data.color)
+                                                )
+                                              ]),
+                                              _c("br"),
+                                              _vm._v(" "),
+                                              _c("b", [
+                                                _vm._v(
+                                                  "count: " + _vm._s(data.count)
+                                                )
+                                              ]),
+                                              _c("br"),
+                                              _vm._v(" "),
+                                              _c("b", [
+                                                _vm._v(
+                                                  "ManufactureYear:" +
+                                                    _vm._s(data.ManufactureYear)
+                                                )
+                                              ]),
+                                              _c("br"),
+                                              _vm._v(" "),
+                                              _c(
+                                                "button",
+                                                { staticClass: "btn-danger" },
+                                                [_vm._v("Sold")]
+                                              ),
+                                              _c("br")
+                                            ],
+                                            2
+                                          )
+                                        ]
+                                      ),
+                                      _c("br")
+                                    ])
+                                  ])
+                                }),
+                                0
+                              )
+                            ])
+                          ])
+                        ],
+                        2
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "modal-footer" },
+                        [
+                          _vm._t("footer", [
+                            _c(
+                              "label",
+                              {
+                                staticClass: "round-buttons1 btn-success",
+                                attrs: {
+                                  for: "default",
+                                  value: "C",
+                                  align: "right"
+                                },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.hidedetail()
+                                  }
+                                }
+                              },
+                              [_vm._v("Close")]
+                            )
+                          ])
+                        ],
+                        2
+                      )
+                    ])
+                  ])
+                ])
+              ])
+            : _vm._e(),
+          _vm._v(" "),
           _c("div", { staticClass: "card-body" }, [
             _c(
               "button",
@@ -45529,60 +45757,66 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "card-body" }, [
-            _c(
-              "div",
-              { staticClass: "col-md-12 col-sm-12" },
-              _vm._l(_vm.data, function(data) {
-                return _c("div", [
-                  _c("div", { staticClass: "col-md-3 col-sm-6" }, [
-                    _c(
-                      "div",
-                      { staticStyle: { "background-color": "silver" } },
-                      [
+            _c("div", { staticClass: "container" }, [
+              _c("h2", [_vm._v("Car List")]),
+              _vm._v(" "),
+              _c("table", { staticClass: "table" }, [
+                _vm._m(0),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.data, function(data) {
+                    return _c("tr", [
+                      _c("td", [_vm._v(_vm._s(data.manufacturer.Name))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(data.ModelName))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(data.count))]),
+                      _vm._v(" "),
+                      _c("td", [
                         _c(
-                          "div",
-                          { staticClass: "thumbnail" },
-                          [
-                            _vm._l(data.images, function(img) {
-                              return _c("div", { staticClass: "media-body " }, [
-                                _c("img", {
-                                  attrs: {
-                                    src: "/images/" + img.image,
-                                    height: "130px"
-                                  }
-                                })
-                              ])
-                            }),
-                            _vm._v(" "),
-                            _c("h2", [_vm._v(_vm._s(data.manufacturer.Name))]),
-                            _vm._v(
-                              "\n           " +
-                                _vm._s(data.ModelName) +
-                                "\n           "
-                            ),
-                            _c(
-                              "button",
-                              { staticClass: "btn btn-xs btn-default" },
-                              [_vm._v("Sold")]
-                            )
-                          ],
-                          2
+                          "button",
+                          {
+                            staticClass: "btn-danger",
+                            on: {
+                              click: function($event) {
+                                return _vm.Details(data.id)
+                              }
+                            }
+                          },
+                          [_vm._v("Details")]
                         )
-                      ]
-                    ),
-                    _c("br")
-                  ])
-                ])
-              }),
-              0
-            )
+                      ])
+                    ])
+                  }),
+                  0
+                )
+              ])
+            ])
           ])
         ])
       ])
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Manufacturer")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Model")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("count")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Details")])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 

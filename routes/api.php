@@ -19,6 +19,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/data',  function (Request $request) {
     return App\CarModel::with('images')->with('Manufacturer')->get();
 });
+Route::get('/data/{id}',  function (Request $request) {
+    return App\CarModel::where('id', $request->id)->with('images')->with('Manufacturer')->get();
+});
 Route::post('/CreateManufacturer',  function (Request $request) {
 $x = new App\Manufacturer();
 $x->Name = $request->name;
