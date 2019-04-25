@@ -63,7 +63,7 @@
 
 
 <div class="form-group">
-<label class="col-md-10 col-md-offset-1">Other File</label>
+<label class="col-md-10 col-md-offset-1">Image File</label>
 <div class="col-md-10 col-md-offset-1">
 <input type="file" id="files" ref="files" v-on:change="onAudioUpload" class="form-control" multiple="multiple"  enctype="multipart/form-data"/>
 </div></div>
